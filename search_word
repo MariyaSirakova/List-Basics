@@ -1,0 +1,23 @@
+On the first line, you will receive a number n. On the second line, you will receive a word. On the following n lines,
+you will be given some strings. You should add them to a list and print them. After that, you should filter out only
+the strings that include the given word and print that list too.
+
+number = int(input())
+the_word = input()
+strings = []
+
+for _ in range(number):
+    current_string = input()
+    strings.append(current_string)
+
+print(strings)
+
+filtered_string = []
+
+for i in strings:
+    if the_word in i:
+        filtered_string.append(i)
+
+print(filtered_string)
+
+
