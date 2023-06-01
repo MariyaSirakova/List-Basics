@@ -1,0 +1,16 @@
+Write a program that receives a list of integer numbers (separated by a single space) and a number n. The number n
+represents the count of numbers to remove from the list. You should remove the smallest ones, and then, you
+should print all the numbers that are left in the list, separated by a comma and a space ", ".
+
+
+numbers = input().split()
+count_of_numbers_to_remove = int(input())
+numbers_line = []
+
+for element in numbers:
+    numbers_line.append(int(element))
+
+for _ in range(count_of_numbers_to_remove):
+    numbers_line.remove(min(numbers_line))
+
+print(*numbers_line, sep=", ")
