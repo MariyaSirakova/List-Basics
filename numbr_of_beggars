@@ -1,0 +1,21 @@
+You will receive 2 lines of input. On the first line, you will receive a single string of integers, separated by a comma
+and a space ", ". On the second line, you will receive a count of beggars. Your job is to print a list with the sum of
+what each beggar brings home, assuming they all take regular turns, from the first to the last number in the list.
+
+money_as_string = input().split(", ")
+count_of_beggars = int(input())
+money_as_digits = []
+
+for element in money_as_string:
+    money_as_digits.append(int(element))
+
+start_index = 0
+final_sum = []
+
+while start_index < count_of_beggars:
+    current_sum_of_beggar = 0
+    for current_index in range(start_index, len(money_as_digits), count_of_beggars):
+        current_sum_of_beggar += money_as_digits[current_index]
+    final_sum.append(current_sum_of_beggar)
+    start_index += 1
+print(final_sum)
