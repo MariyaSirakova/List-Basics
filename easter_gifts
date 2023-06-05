@@ -1,0 +1,21 @@
+gifts_list = input().split()
+
+command = input()
+while command != 'No Money':
+    command_type, *more_info = command.split()
+    if 'OutOfStock' in command_type:
+        for i, name in enumerate(gifts_list):
+            if more_info[-1] == name:
+                gifts_list[i] = 'None'
+    elif 'Required' in command_type:
+        length = len(gifts_list)
+        if length > int(more_info[-1]) >= 0:
+            gifts_list[int(more_info[-1])] = more_info[0]
+    elif 'JustInCase' in command_type:
+        gifts_list[-1] = more_info[-1]
+
+    command = input()
+
+print(" ".join(x for x in gifts_list if x != 'None'))
+
+
