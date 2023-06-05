@@ -1,0 +1,41 @@
+You will receive a sequence of numbers. Each number represents the time the car needs to pass through that step
+(the index). There will be two cars. The first one starts from the left side, and the other one starts from the right
+side. The middle index of the sequence is the finish line.
+Calculate the total time each racer needs to reach the finish line and print the winner with his total time (the racer
+with less time). If you have a zero in the list, you should reduce the racer's time that reached it by 20% (from his
+current time).
+
+number_line = input().split()
+first_car = []
+second_car = []
+total_time_first_car = 0
+total_time_second_car = 0
+winner = ''
+for num in number_line:
+    finish_line = int(len(number_line)//2)
+
+    first_car = number_line[: finish_line]
+    second_car = number_line[finish_line +1 :]
+
+for item in first_car:
+    item = int(item)
+    total_time_first_car += item
+    if item == 0:
+        total_time_first_car *= 0.80
+
+for element in reversed(second_car):
+    element = int(element)
+    total_time_second_car += element
+    if element == 0:
+        total_time_second_car *= 0.80
+
+if total_time_first_car < total_time_second_car:
+    print(f"The winner is left with total time: {total_time_first_car:.1f}")
+
+else:
+    print(f"The winner is right with total time: {total_time_second_car:.1f}")
+
+
+
+
+
